@@ -1,12 +1,13 @@
 import "dotenv/config"
 import express from "express"
 import pool from "./connect/database.js"
+import rotasConversa from "./routes/conversa.js"
 
 const porta = process.env.PORTA_SERVER
 const app = express()
 
 app.use(express.json())
-//app.use()
+app.use("/api/v1" , rotasConversa)
 
 async function VerificarConexao(){
     try {
